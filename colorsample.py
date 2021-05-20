@@ -3,6 +3,7 @@ import cv2 as cv , cv2
 import os
 import numpy as np
 import argparse
+
 from os.path import isfile, join
 
 
@@ -94,7 +95,12 @@ def color(input_image_path):
     img_bgr_out = np.uint8(img_bgr_out)
     # concatenate input and output image to display
     con = np.hstack([frame, img_bgr_out])
+
     print("everything")
-    cv.imwrite('.\data\colored\out' + inp, img_bgr_out)
-    cv.imshow("subash",img_bgr_out)
+
+    cv.imwrite('\data\colored\out' + inp, img_bgr_out)
+    cv.imshow("colored output",img_bgr_out)
     #os.remove(input_image_path)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
+
